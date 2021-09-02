@@ -42,20 +42,23 @@ class MyStatelessWidget extends StatelessWidget {
             tooltip: 'Go to the next page',
 
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute<void>(
-                builder: (BuildContext context) {
-                  return Scaffold(
-                    appBar: AppBar(
-                      title: const Text('Next page'),
-                    ),
-                    body: const Center(
-                      child: const Image(
-                        image: NetworkImage('https://pbs.twimg.com/media/E3i69rTX0AMX5hc?format=jpg&name=small'),
+              setState(() {
+                Navigator.push(context, MaterialPageRoute<void>(
+                  builder: (BuildContext context) {
+                    return Scaffold(
+                      appBar: AppBar(
+                        title: const Text('Next page'),
                       ),
-                    ),
-                  );
-                },
-              ));
+                      body: const Center(
+                        child: const Image(
+                          image: NetworkImage(
+                              'https://pbs.twimg.com/media/E3i69rTX0AMX5hc?format=jpg&name=small'),
+                        ),
+                      ),
+                    );
+                  },
+                ));
+              });
             },
           ),
         ],
@@ -63,6 +66,8 @@ class MyStatelessWidget extends StatelessWidget {
       body: const FormClass(),
     );
   }
+
+  void setState(Null Function() param0) {}
 }
 
 
